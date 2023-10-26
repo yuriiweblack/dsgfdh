@@ -1,0 +1,59 @@
+class Vehicle:
+    def __init__(self, max_speed, milage):
+        self.max_speed = max_speed
+        self.milage = milage
+        self.current_speed = 0
+
+    def increase_speed(self, icrease_speed):
+        if self.current_speed + icrease_speed <= self.max_speed:
+            self.current_speed += icrease_speed
+        else:
+            self.current_speed = self.max_speed
+
+    def break_speed(self, brake_speed):
+        if self.current_speed - brake_speed >= 0:
+            self.current_speed -= brake_speed
+        else:
+            self.current_speed = 0
+    def milage_info(self):
+        print(f"On odometre: {self.milage} mph\nSpeed: {self.current_speed}")
+
+car = Vehicle(max_speed=200, milage=1000)
+car.increase_speed(100)
+car.break_speed(20)
+print(car.milage_info())
+
+car2 = Vehicle(max_speed=200, milage=1000)
+car2.increase_speed(150)
+car2.break_speed(20)
+print(car2.milage_info())
+
+print("-"*100)
+
+
+class Animal:
+    def __init__(self, firstname, lastname, weight, eyes):
+        self.firstname = firstname
+        self.lastname = lastname
+        self.weight = weight
+        self.eyes = eyes
+
+    def jump(self):
+        return f"{self.firstname} {self.lastname} is jumping"
+
+    def eat(self, food):
+        return f"{self.firstname} {self.lastname} is eating {food}"
+
+    def breath(self):
+        return f"{self.firstname} {self.lastname} is breathing"
+
+
+animal1 = Animal(firstname="yellow", lastname="cheetah", weight=80,eyes=2)
+print(animal1.jump())
+print(animal1.eat("meat"))
+print(animal1.breath())
+
+animal2 = Animal(firstname="big", lastname="bear", weight=180,eyes=2)
+print(animal2.jump())
+print(animal2.eat("honey"))
+print(animal2.breath())
